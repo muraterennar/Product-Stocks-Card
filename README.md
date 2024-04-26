@@ -19,13 +19,13 @@ Bu proje, bir stok kartının tasarımını içerir. Temel olarak, ürünlerin b
 1. Projeyi klonlayın:
 
     ```bash
-    git clone https://github.com/kullanici/proje.git
+    git clone https://github.com/muraterennar/Product-Stocks-Card.git
     ```
 
 2. Proje dizinine gidin ve HTML dosyasını bir tarayıcıda açın.
 
     ```bash
-    cd proje
+    cd Product-Stocks-Card
     ```
 
 3. Tarayıcıda HTML dosyasını açın.
