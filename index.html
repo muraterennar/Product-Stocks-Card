@@ -1,147 +1,477 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katre Stok Sayfası</title>
+    <title>Stok Kartı</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-
+    <!-- Bootstrap CSS v5.2.1 -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
 
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+        :root {
+            --card-first-color: #f5f5f5;
+            --card-second-color: #fff;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none !important;
+        }
+
+        .stokta_var {
+            color: #08e966;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stokta_yok {
+            color: #FF0000;
+        }
+
+        .stok-img {
+            width: auto;
+            height: 80px;
+        }
+
+        .base-container {
+            padding-block: 10px !important;
+            height: 100px;
+        }
+
+        .base-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+        }
+
+        .title {
+            text-align: start;
+        }
+
+        .content-item {
+            transition: all 0.3s;
+
+            .title {
+                font-size: 12px;
+                font-weight: 700;
+                margin-top: 0.5rem;
+            }
+
+            .title a {
+                color: #222;
+            }
+
+            .subtitle {
+                font-size: 12px;
+                font-weight: 500;
+                margin-top: 0.25rem;
+            }
+
+            .stok-kodu {
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .basket-btn {
+                border: none;
+                background-color: #FF0000;
+                padding: 2rem 0.5rem;
+                border-radius: 4px;
+                color: #fff;
+                font-size: 14px;
+                transition: 250ms all;
+            }
+
+            .stok-btn {
+                border: none;
+                background-color: transparent;
+                padding: 0.5rem 0.5rem;
+                border-radius: 4px;
+                color: #222;
+                font-size: 10px;
+                transition: 250ms all;
+            }
+
+            .input-div {
+                background-color: #fff;
+                border: 1px solid #f8f8f8;
+                padding-block: 5px;
+                border-radius: 4px;
+
+                .input-btn {
+                    border: none;
+                    background-color: transparent;
+                    color: #222;
+                    font-size: 10px;
+                    transition: 250ms all;
+                    padding: 4px;
+                    border-radius: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                input[type="number"] {
+                    width: 30px;
+                    height: 30px;
+                    padding: 0;
+                    margin: 0;
+                    outline: none;
+                    border: none;
+                    text-align: center;
+                    font-size: 12px;
+                    background-color: transparent;
+                    color: #252525;
+                }
+
+                input[type="number"]::-webkit-inner-spin-button,
+                input[type="number"]::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    margin: 0;
+                }
+            }
+
+            .fiyat {
+                font-size: 14px;
+                font-weight: 600;
+                padding-right: 15px !important;
+            }
+
+
+
+            .fiyat-tablosu {
+                background-color: #FF0000;
+                color: #fff;
+                font-weight: 600;
+                font-size: 12px;
+            }
+        }
+
+        /* Hover efekti */
+        .content-item:hover {
+            background-color: #252525 !important;
+            color: #fff !important;
+
+            .title a {
+                color: #fff;
+            }
+
+            .input-div {
+                background-color: #444444;
+                border: 1px solid transparent;
+
+                input[type="number"] {
+                    color: #fff;
+                }
+
+                .input-btn {
+                    color: #fff;
+
+                    &:hover {
+                        color: #fff;
+                        background-color: #252525;
+                    }
+                }
+            }
+
+
+            .basket-btn {
+                padding: 0.5rem 0.5rem;
+                color: #fff;
+            }
+        }
+
+        /* Tek ve çift sıra stilleri */
+        .content-item:nth-child(odd) {
+            background-color: var(--card-first-color);
+        }
+
+        .content-item:nth-child(even) {
+            background-color: var(--card-second-color);
+        }
+
+        /* İlk ve son öğe stilleri */
+        .content-item:first-child {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .content-item:last-child {
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+    </style>
 </head>
 
 <body>
 
+    <div class="py-2">
+        <h3 class="text-center pb-4 text-decoration-underline">Prototip</h3>
+        <div class="container mt-5 ">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row align-items-center">
+                        <!-- 1. Div -->
+                        <div class="col-5 bg-primary p-3">
+                            <div class="row align-items-center">
+                                <div class="col bg-danger ">4/1</div>
+                                <div class="col bg-info  ">4/2</div>
+                                <div class="col bg-warning   ">4/3</div>
+                            </div>
+                        </div>
+                        <!-- 2. Div -->
+                        <div class="col-6 bg-success position-relative py-3">
+                            <div class="row align-items-center">
 
-    <div class="container py-5">
-        <div class="row">
-            <!-- 1.Eleman -->
-            <div class="col-12 content-item position-relative ">
-                <div class="d-flex justify-content-between  align-items-center">
-                    <img src="https://placehold.co/200x200" alt="logo"
-                        class="img-fluid img-thumbnail  rounded stok-img">
-                    <div class="w-25 d-flex flex-column justify-content-start align-items-start px-3">
-                        <h6 class="text-start fw-bold title">AIRFEL DIGIFEL CONDENSE 24 KW ALX SB YOĞUŞMALI KOMBİ</h6>
-                        <span class="subtitle">AIRFEL</span>
-                    </div>
-                    <div class="border-start p-3 d-flex justify-content-between align-items-center gap-4">
-                        <div class="stok-kodu-div d-flex flex-column justify-content-center align-items-center">
-                            <span class="stok-kodu">01 AS 18 1</span>
-                            <span class="badge stokta_var stok-durumu">Stokta</span>
+                                <div class="row align-items-center">
+                                    <div class="col-7 bg-primary position-absolute end-0 bottom-100 w-100 p-3">
+                                        <div class="row align-items-center">
+                                            <div class="col text-center">7/1</div>
+                                            <div class="col text-center">7/2</div>
+                                            <div class="col text-center">7/3</div>
+                                            <div class="col text-center">7/4</div>
+                                            <div class="col text-center">7/5</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col bg-info  text-center">7/1</div>
+                                <div class="col bg-info-subtle text-center">7/2</div>
+                                <div class="col bg-warning text-center">7/3</div>
+                                <div class="col bg-warning-subtle text-center">7/4</div>
+                                <div class="col bg-danger text-center">7/5</div>
+                            </div>
+                        </div>
+                        <!-- 3. Div -->
+                        <div class="col-1 bg-warning p-3">
+                            <div class="row">
+                                <div class="col-6 bg-danger-subtle ">1/1</div>
+                                <div class="col-6 bg-success-subtle ">1/2</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="">
-                        <div
-                            class="px-4 p-2 text-center rounded-top fiyat-tipleri position-absolute fiyat-tipi d-flex justify-content-between align-items-center ">
-                            <span class="text-start fiyat-adi">Nakit Ödeme</span>
-                            <span class="text-start fiyat-adi">Daiken Sanal Pos</span>
-                            <span class="text-start fiyat-adi">Kredi kartı</span>
-                            <span class="text-start fiyat-adi">Çek İle Ödeme</span>
-                            <span class="text-start fiyat-adi">Tek Çekim</span>
-                        </div>
-
-                        <span class="fiyat border-end px-3 py-4">17.856,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                    </div>
-
-                    <div
-                        class="input-div p-1 d-flex flex-column justify-content-center align-items-center gap-2 rounded mx-2">
-                        <button type="button"
-                            class="input-btn rounded-5 d-flex justify-content-center align-items-center"><i
-                                class="fa-solid fa-plus"></i></button>
-                        <input type="number" disabled value="1" class="rounded fw-bold " />
-                        <button type="button"
-                            class="input-btn rounded-5 d-flex justify-content-center align-items-center"><i
-                                class="fa-solid fa-minus"></i></button>
-                    </div>
-                    <button class="btn btn-sm px-2 py-4 basket-btn"><i class="fa-solid fa-basket-shopping"></i></button>
                 </div>
             </div>
+        </div>
 
-            <!-- 2.Eleman -->
-            <div class="col-12 content-item position-relative ">
-                <div class="d-flex justify-content-between  align-items-center">
-                    <img src="https://placehold.co/200x200" alt="logo"
-                        class="img-fluid img-thumbnail  rounded stok-img">
-                    <div class="w-25 d-flex flex-column justify-content-start align-items-start px-3">
-                        <h6 class="text-start fw-bold title">AIRFEL DIGIFEL CONDENSE 24 KW ALX SB YOĞUŞMALI KOMBİ</h6>
-                        <span class="subtitle">AIRFEL</span>
-                    </div>
-                    <div class="border-start p-3 d-flex justify-content-between align-items-center gap-4">
-                        <div class="stok-kodu-div d-flex flex-column justify-content-center align-items-center">
-                            <span class="stok-kodu">01 AS 18 1</span>
-                            <span class="badge stokta_yok stok-durumu">Stokta Yok</span>
+
+        <h3 class="text-center py-5 text-decoration-underline">Yapı</h3>
+        <div class="container text-center mt-5 pt-3">
+            <div class="row">
+                <!-- **** 1. Kısım **** -->
+                <div class="col-12 content-item">
+                    <div class="row align-items-center">
+                        <!-- 1. Div -->
+                        <div class="col-5 rounded-start bg-transparent  base-container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8 align-self-center border-end ">
+                                    <div class="col d-flex justify-content-center align-items-center gap-2">
+                                        <img src="https://placehold.co/200x200" alt="image"
+                                            class="img-fluid img-thumbnail stok-img">
+
+                                        <div class="d-flex flex-column  justify-content-center align-items-center">
+                                            <h6 class="title">
+                                                <a href="">AIRFEL DIGIFEL CONDENSE 24 KW ALX SB YOĞUŞMALI KOMBİ</a>
+                                            </h6>
+                                            <span class="subtitle text-start w-100">AIRFEL</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-sm">
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
+                                        <span class="stok-kodu">180 AB8 80 1</span>
+                                        <span class="stokta_var">Stokta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2. Div -->
+                        <div class="col-6 bg-transparent position-relative base-container">
+                            <div class="row align-items-center">
+                                <div class="row align-items-center">
+                                    <div
+                                        class="col-sm-7 position-absolute end-0 bottom-100 w-100 rounded-top fiyat-tablosu">
+                                        <div class="row align-items-center">
+                                            <div class="col-sm text-center">
+                                                <div class="p-1">
+                                                    <span class="">Nakit</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm text-center">
+                                                <div class="p-1">
+                                                    <span class="">Daiken Sanal Pos</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm text-center">
+                                                <div class="p-1">
+                                                    <span class="">Kredi Kartı</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm text-center">
+                                                <div class="p-1">
+                                                    <span class="">Çek İle Ödeme</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm text-center">
+                                                <div class="p-1">
+                                                    <span class="">Tek Çekim</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm text-center">
+                                    <div class="base-div border-end">
+                                        <span class="fiyat">18.658,35 ₺</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm text-center">
+                                    <div class="base-div border-end">
+                                        <span class="fiyat">18.658,35 ₺</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm text-center">
+                                    <div class="base-div border-end">
+                                        <span class="fiyat">18.658,35 ₺</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm text-center">
+                                    <div class="base-div border-end">
+                                        <span class="fiyat">18.658,35 ₺</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm text-center">
+                                    <div class="base-div border-end">
+                                        <span class="fiyat">18.658,35 ₺</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 3. Div -->
+                        <div class="col-sm-1 rounded-end base-container">
+                            <div class="row align-items-center">
+                                <div class="col-sm-6">
+                                    <div class="base-div">
+                                        <div
+                                            class="d-flex flex-column justify-content-center align-items-center input-div">
+                                            <button class="input-btn"><i class="fas fa-plus"></i></button>
+                                            <input type="number" readonly value="1">
+                                            <button class="input-btn"><i class="fas fa-minus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="base-div">
+                                        <button class="basket-btn"><i class="fas fa-shopping-basket"></i></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="">
-                        <span class="fiyat border-end px-3 py-4">17.856,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                    </div>
-
-                    <div
-                        class="input-div p-1 d-flex flex-column justify-content-center align-items-center gap-2 rounded mx-2">
-                        <button type="button"
-                            class="input-btn rounded-5 d-flex justify-content-center align-items-center"><i
-                                class="fa-solid fa-plus"></i></button>
-                        <input type="number" disabled value="1" class="rounded fw-bold "></button>
-                        <button type="button"
-                            class="input-btn rounded-5 d-flex justify-content-center align-items-center"><i
-                                class="fa-solid fa-minus"></i></button>
-                    </div>
-                    <button class="btn btn-sm px-2 py-4 basket-btn"><i class="fa-solid fa-basket-shopping"></i></button>
                 </div>
-            </div>
 
-            <!-- 3.Eleman -->
-            <div class="col-12 content-item position-relative ">
-                <div class="d-flex justify-content-between  align-items-center">
-                    <img src="https://placehold.co/200x200" alt="logo"
-                        class="img-fluid img-thumbnail  rounded stok-img">
-                    <div class="w-25 d-flex flex-column justify-content-start align-items-start px-3">
-                        <h6 class="text-start fw-bold title">AIRFEL DIGIFEL CONDENSE 24 KW ALX SB YOĞUŞMALI KOMBİ</h6>
-                        <span class="subtitle">AIRFEL</span>
-                    </div>
-                    <div class="border-start p-3 d-flex justify-content-between align-items-center gap-4">
-                        <div class="stok-kodu-div d-flex flex-column justify-content-center align-items-center">
-                            <span class="stok-kodu">01 AS 18 1</span>
-                            <span class="badge stokta_var stok-durumu">Stokta</span>
+                <!-- **** 2. Kısım **** -->
+                <div class="col-12 content-item">
+                    <div class="row align-items-center">
+                        <!-- 1. Div -->
+                        <div class="col-5 rounded-start bg-transparent  base-container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8 align-self-center border-end ">
+                                    <div class="col d-flex justify-content-center align-items-center gap-2">
+                                        <img src="https://placehold.co/200x200" alt="image"
+                                            class="img-fluid img-thumbnail stok-img">
+
+                                        <div class="d-flex flex-column  justify-content-center align-items-center">
+                                            <h6 class="title">
+                                                <a href="">AIRFEL DIGIFEL CONDENSE 24 KW ALX SB YOĞUŞMALI KOMBİ</a>
+                                            </h6>
+                                            <span class="subtitle text-start w-100">AIRFEL</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-sm">
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
+                                        <span class="stok-kodu">180 AB8 80 1</span>
+                                        <span class="stokta_var">Stokta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2. Div -->
+                        <div class="col-6 bg-transparent position-relative base-container">
+                            <div class="row align-items-center">
+                                <div class="col-sm text-center">
+                                    <div class="base-div border-end">
+                                        <span class="fiyat">18.658,35 ₺</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm text-center">
+                                    <div class="base-div border-end">
+                                        <span class="fiyat">18.658,35 ₺</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm text-center">
+                                    <div class="base-div border-end">
+                                        <span class="fiyat">18.658,35 ₺</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm text-center">
+                                    <div class="base-div border-end">
+                                        <span class="fiyat">18.658,35 ₺</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm text-center">
+                                    <div class="base-div border-end">
+                                        <span class="fiyat">18.658,35 ₺</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 3. Div -->
+                        <div class="col-sm-1 rounded-end base-container">
+                            <div class="row align-items-center">
+                                <div class="col-sm-6">
+                                    <div class="base-div">
+                                        <div
+                                            class="d-flex flex-column justify-content-center align-items-center input-div">
+                                            <button class="input-btn"><i class="fas fa-plus"></i></button>
+                                            <input type="number" readonly value="1">
+                                            <button class="input-btn"><i class="fas fa-minus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="base-div">
+                                        <button class="basket-btn"><i class="fas fa-shopping-basket"></i></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="">
-                        <span class="fiyat border-end px-3 py-4">17.856,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                        <span class="fiyat border-end px-3 py-4">16.320,00 TL</span>
-                    </div>
-
-                    <div
-                        class="input-div p-1 d-flex flex-column justify-content-center align-items-center gap-2 rounded mx-2">
-                        <button type="button"
-                            class="input-btn rounded-5 d-flex justify-content-center align-items-center"><i
-                                class="fa-solid fa-plus"></i></button>
-                        <input type="number" disabled value="1" class="rounded fw-bold "></button>
-                        <button type="button"
-                            class="input-btn rounded-5 d-flex justify-content-center align-items-center"><i
-                                class="fa-solid fa-minus"></i></button>
-                    </div>
-                    <button class="btn btn-sm px-2 py-4 basket-btn"><i class="fa-solid fa-basket-shopping"></i></button>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://kit.fontawesome.com/f912f34ab7.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="./node_modules/@popperjs/core/dist/cjs/popper.js"></script>
+
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
 </body>
 
 </html>
