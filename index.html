@@ -143,9 +143,22 @@
             }
 
             .fiyat {
-                font-size: 14px;
+                font-size: 12px;
                 font-weight: 600;
                 padding-right: 15px !important;
+            }
+
+            .fiyat-tablosu-fiyati {
+                font-weight: 600;
+                text-wrap: nowrap;
+                font-size: 12px;
+                color: #fff !important;
+            }
+
+            .fiyat-tablosu-fiyati a {
+                color: #fff;
+                padding-right: 15px !important;
+                text-align: start;
             }
 
 
@@ -154,7 +167,6 @@
                 background-color: #FF0000;
                 color: #fff;
                 font-weight: 600;
-                font-size: 12px;
             }
         }
 
@@ -211,12 +223,59 @@
             border-bottom-left-radius: 8px;
             border-bottom-right-radius: 8px;
         }
+
+
+
+
+        /* -------- Mobile -------- */
+        .mobile-title{
+            font-size: 12px;
+            font-weight: 700;
+            text-align: start;
+        }
+
+        .mobile-title a{
+            color: #222;
+        }
+
+        .content-item:hover .mobile-title a{
+            color: #fff;
+        }
+
+        .mobile-category{
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .basket-btn-mobile {
+                border: none;
+                display: block;
+                width: 100%;
+                background-color: #FF0000;
+                padding: 0.5rem 3rem;
+                border-radius: 4px;
+                color: #fff;
+                font-size: 14px;
+                transition: 250ms all;
+            }
+
+            .fiyat-adi{
+                background-color: #FF0000;
+                font-size: 12px;
+            }
+
+            .fiyat-mobile{
+                font-size: 12px;
+                font-weight: 600;
+            }
     </style>
 </head>
 
 <body>
 
     <div class="py-2">
+        <!-- ------------------------- Prototip ------------------------- -->
         <h3 class="text-center pb-4 text-decoration-underline">Prototip</h3>
         <div class="container mt-5 ">
             <div class="row">
@@ -265,7 +324,7 @@
             </div>
         </div>
 
-
+        <!-- ------------------------- Web ------------------------- -->
         <h3 class="text-center py-5 text-decoration-underline">Yapı</h3>
         <div class="container text-center mt-5 pt-3">
             <div class="row">
@@ -305,28 +364,32 @@
                                         class="col-sm-7 position-absolute end-0 bottom-100 w-100 rounded-top fiyat-tablosu">
                                         <div class="row align-items-center">
                                             <div class="col-sm text-center">
-                                                <div class="p-1">
-                                                    <span class="">Nakit</span>
+                                                <div class="d-flex justify-content-center align-items-center pe-3 py-2">
+                                                    <span class="fiyat">Nakit</span>
                                                 </div>
                                             </div>
+
                                             <div class="col-sm text-center">
-                                                <div class="p-1">
-                                                    <span class="">Daiken Sanal Pos</span>
+                                                <div class="d-flex justify-content-center align-items-center pe-3 py-2">
+                                                    <span class="fiyat">Daikin Sanal Pos</span>
                                                 </div>
                                             </div>
+
                                             <div class="col-sm text-center">
-                                                <div class="p-1">
-                                                    <span class="">Kredi Kartı</span>
+                                                <div class="d-flex justify-content-center align-items-center pe-3 py-2">
+                                                    <span class="fiyat">Kredi Kartı</span>
                                                 </div>
                                             </div>
+
                                             <div class="col-sm text-center">
-                                                <div class="p-1">
-                                                    <span class="">Çek İle Ödeme</span>
+                                                <div class="d-flex justify-content-center align-items-center pe-3 py-2">
+                                                    <span class="fiyat">Çek İle Ödeme</span>
                                                 </div>
                                             </div>
+
                                             <div class="col-sm text-center">
-                                                <div class="p-1">
-                                                    <span class="">Tek Çekim</span>
+                                                <div class="d-flex justify-content-center align-items-center pe-3 py-2">
+                                                    <span class="fiyat">Tek Çekim</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -457,6 +520,126 @@
                                 <div class="col-sm-6">
                                     <div class="base-div">
                                         <button class="basket-btn"><i class="fas fa-shopping-basket"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ------------------------- Mobile ------------------------- -->
+        <h3 class="text-center py-5 text-decoration-underline">Yapı</h3>
+        <div class="container text-center my-5 py-3">
+            <div class="row">
+                <!-- --------------------------- 1.div ------------------------------ -->
+                <div class="col-sm-12 content-item align-content-center rounded-start  ">
+                    <div class="row align-items-center px-2 py-3">
+                        <div class="col-6">
+                            <div class="row align-items-center p-3">
+                                <div class="col-sm-12 p-0">
+                                    <img src="https://placehold.co/200x200" alt="img"
+                                        class="img-fluid img-thumbnail  h-auto w-50">
+                                </div>
+                                <div class="col-sm-12 border-end py-3">
+                                    <h6 class="mobile-title text-center ">
+                                        <a href="" class="">AIRFEL DIGIFEL CONDENSE 24 KW ALX SB YOĞUŞMALI KOMBİ</a>
+                                    </h6>
+                                    <span class="text-center rounded text-white d-block mobile-category fw-bold " style="background-color: #FF0000;">AIRFEL</span>
+                                </div>
+                                <div class="col-sm-12 border-end py-3">
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
+                                        <span class="stok-kodu">180 AB8 80 1</span>
+                                        <span class="stokta_var">Stokta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row align-items-center ">
+                                <div class="col-sm-6 mb-2">
+                                    <h6 class="text-start d-flex justify-content-start align-content-center p-1 rounded-1 text-white fiyat-adi">Nakit</h6>
+                                    <span class="d-block text-start fw-bold fiyat-mobile">16.556.000 ₺</span>
+                                </div>
+                                <div class="col-sm-6 mb-2">
+                                    <h6 class="text-start d-flex justify-content-start align-content-center p-1 rounded-1 text-white fiyat-adi">Nakit</h6>
+                                    <span class="d-block text-start fw-bold fiyat-mobile">16.556.000 ₺</span>
+                                </div>
+                                <div class="col-sm-6 mb-2">
+                                    <h6 class="text-start d-flex justify-content-start align-content-center p-1 rounded-1 text-white fiyat-adi">Nakit</h6>
+                                    <span class="d-block text-start fw-bold fiyat-mobile">16.556.000 ₺</span>
+                                </div>
+                                <div class="col-sm-6 mb-2">
+                                    <h6 class="text-start d-flex justify-content-start align-content-center p-1 rounded-1 text-white fiyat-adi">Nakit</h6>
+                                    <span class="d-block text-start fw-bold fiyat-mobile">16.556.000 ₺</span>
+                                </div>
+                                <div class="col-sm-6 mb-2">
+                                    <h6 class="text-start d-flex justify-content-start align-content-center p-1 rounded-1 text-white fiyat-adi">Nakit</h6>
+                                    <span class="d-block text-start fw-bold fiyat-mobile">16.556.000 ₺</span>
+                                </div>
+
+                                
+                                <div class="col-sm-12 border-end py-3">
+                                    <div class="base-div position-relative">
+                                        <button class="basket-btn-mobile"><i class="fas fa-shopping-basket"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- --------------------------- 1.div ------------------------------ -->
+                 <div class="col-sm-12 content-item align-content-center rounded-start  ">
+                    <div class="row align-items-center px-2 py-3">
+                        <div class="col-6">
+                            <div class="row align-items-center p-3">
+                                <div class="col-sm-12 p-0">
+                                    <img src="https://placehold.co/200x200" alt="img"
+                                        class="img-fluid img-thumbnail  h-auto w-50">
+                                </div>
+                                <div class="col-sm-12 border-end py-3">
+                                    <h6 class="mobile-title text-center ">
+                                        <a href="" class="">AIRFEL DIGIFEL CONDENSE 24 KW ALX SB YOĞUŞMALI KOMBİ</a>
+                                    </h6>
+                                    <span class="text-center rounded text-white d-block mobile-category fw-bold " style="background-color: #FF0000;">AIRFEL</span>
+                                </div>
+                                <div class="col-sm-12 border-end py-3">
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
+                                        <span class="stok-kodu">180 AB8 80 1</span>
+                                        <span class="stokta_var">Stokta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row align-items-center ">
+                                <div class="col-sm-6 mb-2">
+                                    <h6 class="text-start d-flex justify-content-start align-content-center p-1 rounded-1 text-white fiyat-adi">Nakit</h6>
+                                    <span class="d-block text-start fw-bold fiyat-mobile">16.556.000 ₺</span>
+                                </div>
+                                <div class="col-sm-6 mb-2">
+                                    <h6 class="text-start d-flex justify-content-start align-content-center p-1 rounded-1 text-white fiyat-adi">Nakit</h6>
+                                    <span class="d-block text-start fw-bold fiyat-mobile">16.556.000 ₺</span>
+                                </div>
+                                <div class="col-sm-6 mb-2">
+                                    <h6 class="text-start d-flex justify-content-start align-content-center p-1 rounded-1 text-white fiyat-adi">Nakit</h6>
+                                    <span class="d-block text-start fw-bold fiyat-mobile">16.556.000 ₺</span>
+                                </div>
+                                <div class="col-sm-6 mb-2">
+                                    <h6 class="text-start d-flex justify-content-start align-content-center p-1 rounded-1 text-white fiyat-adi">Nakit</h6>
+                                    <span class="d-block text-start fw-bold fiyat-mobile">16.556.000 ₺</span>
+                                </div>
+                                <div class="col-sm-6 mb-2">
+                                    <h6 class="text-start d-flex justify-content-start align-content-center p-1 rounded-1 text-white fiyat-adi">Nakit</h6>
+                                    <span class="d-block text-start fw-bold fiyat-mobile">16.556.000 ₺</span>
+                                </div>
+
+                                
+                                <div class="col-sm-12 border-end py-3">
+                                    <div class="base-div position-relative">
+                                        <button class="basket-btn-mobile"><i class="fas fa-shopping-basket"></i></button>
                                     </div>
                                 </div>
                             </div>
